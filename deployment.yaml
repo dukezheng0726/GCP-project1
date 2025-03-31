@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gke-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gke-app
+  template:
+    metadata:
+      labels:
+        app: gke-app
+    spec:
+      containers:
+      - name: gke-app
+        image: us-central1-docker.pkg.dev/corded-cortex-455319-b9/my-repo/gke-app:v1
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gke-app-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: gke-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
