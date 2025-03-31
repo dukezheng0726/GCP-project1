@@ -1,10 +1,3 @@
-# FROM python:3.9
-# WORKDIR /app
-# COPY . /app
-# RUN pip install -r requirements.txt
-# CMD ["gunicorn", "-b", "0.0.0.0:80", "app:app"]
-
-
 # Use a base image
 FROM python:3.9-slim
 
@@ -12,8 +5,7 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy application files
-COPY app.py /app/
-COPY requirements.txt /app/
+COPY src/ /app/
 
 # Install dependencies
 RUN pip install -r requirements.txt

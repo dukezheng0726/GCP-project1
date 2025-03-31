@@ -15,6 +15,7 @@ spec:
       containers:
       - name: app
         image: us-central1-docker.pkg.dev/gcp-project-455402/my-repo/gke-app:v1
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
 ---
