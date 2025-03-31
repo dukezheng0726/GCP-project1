@@ -1,15 +1,15 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/corded-cortex-455319-b9/my-repo/gke-app:$SHORT_SHA', '.']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/gcp-project-455402/my-repo/gke-app:$SHORT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/corded-cortex-455319-b9/my-repo/gke-app:kubectl get pods']
+  args: ['push', 'us-central1-docker.pkg.dev/gcp-project-455402/my-repo/gke-app:$SHORT_SHA']
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/gke-app', 'gke-app=us-central1-docker.pkg.dev/corded-cortex-455319-b9/my-repo/gke-app:$SHORT_SHA']
+  args: ['set', 'image', 'deployment/gke-app', 'gke-app=us-central1-docker.pkg.dev/gcp-project-455402/my-repo/gke-app:$SHORT_SHA']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=gke-cluster'
 
 
 options:
-  #logging: CLOUD_LOGGING_ONLY  # 禁用日志存储
-  logging: NONE  # 禁用日志存储
+  logging: CLOUD_LOGGING_ONLY  # 禁用日志存储
+  # logging: NONE  # 禁用日志存储
