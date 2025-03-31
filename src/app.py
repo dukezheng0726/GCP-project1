@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return "This is Yan's GCP project Demo!!(HTTPS)"
+    return "This is Yan's GCP project Demo!!(HTTS)"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=443)
+    app.run(host='0.0.0.0', port=80)
