@@ -11,4 +11,5 @@ steps:
 
 
 options:
-  logging: CLOUD_LOGGING_ONLY  # 禁用日志存储
+  #logging: CLOUD_LOGGING_ONLY  # 禁用日志存储
+  logging: NONE  # 禁用日志存储
