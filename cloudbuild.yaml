@@ -4,7 +4,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/gcp-project-455402/my-repo/gke-app:$SHORT_SHA']
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/gke-app', 'gke-app=us-central1-docker.pkg.dev/gcp-project-455402/my-repo/gke-app:$SHORT_SHA']
+  args: ['set', 'image', 'deployment/gke-app', 'app=us-central1-docker.pkg.dev/gcp-project-455402/my-repo/gke-app:$SHORT_SHA']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=gke-cluster'
