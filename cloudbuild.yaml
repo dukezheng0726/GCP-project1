@@ -13,7 +13,6 @@ steps:
   args:
     - '-c'
     - |
-      #sed -i 's|us-central1-docker.pkg.dev/gcp-project-455402/my-repo/gke-app:latest|us-central1-docker.pkg.dev/gcp-project-455402/my-repo/gke-app:$SHORT_SHA|' deployment.yaml
       sed -i 's|latest|$SHORT_SHA|' deployment.yaml
 
 # 4. Deploy to GKE using `kubectl apply`
